@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-hero {
-  background-color: #c7e6f4;
-}
-.card-bg {
-  background-color: #f9fdff;
-}
-.pro-bg {
-  background-color: #f9fdff;
-}
-.testmonial {
-  background-image: linear-gradient(
-      rgba(167, 165, 165, 0.1),
-      rgba(187, 184, 184, 0.01)
-    ),
-    url(./imgs/testimonial-shape-1.png);
-  background-position: left;
-  background-size: contain;
-  background-repeat: no-repeat;
+.bg-hero-bg {
+  background-image: url('https://realstatic.staticmania.com/images/hero/hero-bg.png');
 }

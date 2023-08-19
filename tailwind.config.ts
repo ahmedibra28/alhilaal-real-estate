@@ -17,7 +17,21 @@ const config: Config = {
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ['light'],
+    themes: [
+      {
+        mytheme: {
+          primary: '#C7E6F4',
+          secondary: '#D926AA',
+          accent: '#1FB2A5',
+          neutral: '#14213D',
+          'base-100': '#252C3B',
+          info: '#3ABFF8',
+          success: '#36D399',
+          warning: '#FBBD23',
+          error: '#F87272',
+        },
+      },
+    ],
   },
 }
 export default config
