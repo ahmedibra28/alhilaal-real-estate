@@ -17,18 +17,10 @@ cd alhilaal-real-estate
 npm install
 ```
 
-3. Create a `.env` file in the root directory of the project.
+3. Copy `.env.example` to `.env` file in the root directory of the project.
 
 ```
-touch .env
-```
-
-4. Open the `.env` file and define the following environment variables:
-
-```
-DATABASE_URL=<your-database-url>
-GOOGLE_CLIENT_ID=<your-google-client-id>
-GOOGLE_CLIENT_SECRET=<your-google-client-secret>
+cp .env.example .env
 ```
 
 Replace `<your-database-url>`, `<your-google-client-id>`, and `<your-google-client-secret>` with your actual values.
