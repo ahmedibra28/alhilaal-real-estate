@@ -41,9 +41,9 @@ To deploy the project to a production environment, make sure to set the environm
 
 ## Additional Information
 
-- The `DATABASE_URL` environment variable should contain the URL for your database connection.
-- The `GOOGLE_CLIENT_ID` environment variable should contain the client ID for your Google OAuth application.
-- The `GOOGLE_CLIENT_SECRET` environment variable should contain the client secret for your Google OAuth application.
+-   The `DATABASE_URL` environment variable should contain the URL for your database connection.
+-   The `GOOGLE_CLIENT_ID` environment variable should contain the client ID for your Google OAuth application.
+-   The `GOOGLE_CLIENT_SECRET` environment variable should contain the client secret for your Google OAuth application.
 
 Make sure to keep the `.env` file private and never commit it to version control to avoid exposing sensitive information.
 
