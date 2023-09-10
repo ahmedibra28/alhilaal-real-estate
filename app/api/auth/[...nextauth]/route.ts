@@ -9,9 +9,9 @@ export const authOptions = {
             clientSecret: getEnvVariable('GOOGLE_CLIENT_SECRET'),
         }),
     ],
+    secret: getEnvVariable('NEXT_AUTH_SECRET'),
     debug: process.env.NODE_ENV === 'development',
 }
 
 const handler = NextAuth(authOptions)
-
 export { handler as GET, handler as POST }
