@@ -13,6 +13,9 @@ export async function GET(req: Request) {
         const data = await prisma.invoice.findMany({
             take: limit,
             skip,
+            include: {
+                billingDetails: true,
+            },
         })
 
         const total = await prisma.invoice.count()
