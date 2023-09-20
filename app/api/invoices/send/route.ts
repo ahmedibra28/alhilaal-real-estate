@@ -1,4 +1,4 @@
-import { getErrorResponse } from '@/lib/helpers'
+import { getEnvVariable, getErrorResponse } from '@/lib/helpers'
 import { isAuth } from '@/lib/isAuth'
 import transporter from '@/lib/nodemailer'
 import { NextResponse } from 'next/server'
@@ -10,7 +10,7 @@ export async function POST(req: Request) {
         await isAuth()
 
         const mailOptions = {
-            from: 'everardo.cremin@ethereal.email',
+            from: getEnvVariable('SMTP_FROM_EMAIL'),
             to: body.email,
             subject: 'Invoice PDF',
             text: 'Please find attached the invoice.',

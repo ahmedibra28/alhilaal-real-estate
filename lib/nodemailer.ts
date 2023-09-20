@@ -1,11 +1,13 @@
+import { getEnvVariable } from './helpers'
+
 const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
+    host: getEnvVariable('SMTP_HOST'),
+    port: getEnvVariable('SMTP_PORT'),
     auth: {
-        user: 'abdizamedmo@gmail.com',
-        pass: 'kconuazrniqxwtpl',
+        user: getEnvVariable('SMTP_USER'),
+        pass: getEnvVariable('SMTP_PASS'),
     },
 })
 export default transporter
