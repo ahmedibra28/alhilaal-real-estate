@@ -47,7 +47,7 @@ export function UserNav() {
                             src={session.user.image!}
                             alt="User Image"
                         />
-                        <AvatarFallback>SC</AvatarFallback>
+                        <AvatarFallback>AL</AvatarFallback>
                     </Avatar>
                 </Button>
             </DropdownMenuTrigger>

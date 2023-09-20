@@ -42,12 +42,12 @@ export function MainNav({
                     Alhilaal Real State
                 </span>
             </Link>
-            <div className="pl-4 space-x-4 lg:space-x-6">
+            <div className="pl-4 space-x-4 hidden md:block lg:space-x-6">
                 {navConfig.map(({ label, href }, index) => (
                     <Link
                         key={index}
                         href={href}
-                        className="text-sm font-medium transition-colors hover:text-primary"
+                        className={`text-sm font-medium transition-colors hover:text-primary`}
                     >
                         {label}
                     </Link>

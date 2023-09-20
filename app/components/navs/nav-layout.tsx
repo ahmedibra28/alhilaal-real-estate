@@ -7,11 +7,12 @@ import { useSession } from 'next-auth/react'
 
 export default function NavbarLayout() {
     const navs: IMainNav['navConfig'] = [
-        { label: 'About', href: '/about', protected: false },
-        { label: 'Contact', href: '/contact', protected: false },
+        // { label: 'About', href: '/about', protected: false },
+        // { label: 'Contact', href: '/contact', protected: false },
         { label: 'Overview', href: '/dashboard', protected: true },
         { label: 'Invoices', href: '/dashboard/invoices', protected: true },
         { label: 'Billings', href: '/dashboard/billings', protected: true },
+        { label: 'Items', href: '/dashboard/items', protected: true },
     ]
     const { data: session } = useSession()
 
@@ -19,7 +20,7 @@ export default function NavbarLayout() {
 
     const filteredNavs = navs.filter((item) => {
         if (isAuth()) {
-            return item.protected
+            return item
         } else {
             return !item.protected
         }
