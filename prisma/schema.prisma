@@ -1,58 +1,63 @@
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Invoice {
-    id                 Int             @id @default(autoincrement())
-    documentType       DocumentType    @default(QUOTATION)
-    invoiceNumber      String
-    invoiceDate        DateTime
-    dueDate            DateTime
-    billingDetails     BillingDetails? @relation(fields: [billingDetailsId], references: [id])
-    customerName       String
-    customerAddress    String
-    customerContact    String
-    subtotal           Float
-    totalAmount        Float
-    paymentTerms       String
-    termsAndConditions String?
-    notes              String?
-    billingDetailsId   Int?
-    items              Item[]
+  id                 Int             @id @default(autoincrement())
+  documentType       DocumentType    @default(QUOTATION)
+  invoiceNumber      String          @unique
+  invoiceDate        DateTime
+  dueDate            DateTime
+  billingDetails     BillingDetails? @relation(fields: [billingDetailsId], references: [id])
+  billingDetailsId   Int?
+  customerName       String
+  customerAddress    String
+  customerContact    String
+  subtotal           Float
+  totalAmount        Float
+  paymentTerms       String
+  termsAndConditions String?
+  notes              String?
+  items              Item[]
 
-    createdBy String // the user name who created this invoice
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    @@map("invoices")
+  createdBy String // the user name who created this invoice
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("invoices")
 }
 
 model BillingDetails {
-    id       Int       @id @default(autoincrement())
-    name     String
-    address  String
-    contact  String
-    invoices Invoice[]
+  id       Int       @id @default(autoincrement())
+  name     String
+  address  String
+  contact  String
+  invoices Invoice[]
 
-    @@map("billing_details")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("billing_details")
 }
 
 model Item {
-    id          Int       @id @default(autoincrement())
-    description String
-    quantity    Int
-    unitPrice   Float
-    invoices    Invoice[]
+  id          Int    @id @default(autoincrement())
+  description String
+  quantity    Int
+  unitPrice   Float
 
-    @@map("items")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  invoices  Invoice[]    
+  @@map("items")
 }
 
 enum DocumentType {
-    QUOTATION
-    INVOICE
+  QUOTATION
+  INVOICE
 }
