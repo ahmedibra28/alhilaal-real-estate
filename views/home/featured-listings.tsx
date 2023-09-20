@@ -1,14 +1,14 @@
 'use client'
-import { IProperties, useStore } from '@/contexts/store-provider'
 import React from 'react'
 import Image from 'next/image'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import { LiaBedSolid } from 'react-icons/lia'
 import { MdOutlineBathroom } from 'react-icons/md'
 import { CiMoneyCheck1 } from 'react-icons/ci'
+import { usePropertiesStore, IProperties } from '@/models/propertiesStore'
 
 export function FeaturedListings() {
-    const { properties } = useStore()
+    const { properties } = usePropertiesStore((state) => state)
 
     return (
         <div className="max-w-screen-xl px-4 py-8 mx-auto">
@@ -17,7 +17,7 @@ export function FeaturedListings() {
                 {properties.map((item: IProperties, index) => (
                     <>
                         <div
-                            className="mt-4 hover:scale-95 hover:transition hover:ease-linear hover:duration-500 rounded-lg bg-white    dark:bg-gray-800 dark:shadow-gray-900"
+                            className="mt-4 hover:bg-gray-50 p-2 hover:scale-95 hover:transition hover:ease-linear hover:duration-500 rounded-lg bg-white    dark:bg-gray-800 dark:shadow-gray-900"
                             key={index}
                         >
                             <div className="">
