@@ -15,10 +15,13 @@ export function getErrorResponse(
     error: string | null = null,
     status: number = 500,
 ) {
+    const message = String(error).replace(/^Invalid.*\n?/gm, '')
+    const cleanedMessage = message.replace(/^\s*\n/gm, '')
+
     return new NextResponse(
         JSON.stringify({
             status: status < 500 ? 'fail' : 'error',
-            error: error ? error : null,
+            error: error ? cleanedMessage : null,
         }),
         {
             status,
